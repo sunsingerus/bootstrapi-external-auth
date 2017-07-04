@@ -3,8 +3,6 @@
     "description": "Auth plugin for bootstrapi",
     "license": "MIT",
     "minimum-stability": "stable",
-    "version": "1.1.1",
-    "license": "MIT",
     "homepage": "https://github.com/sunsingerus/bootstrapi-auth",
     "type": "project",
     "keywords": ["bootstrapi"],
