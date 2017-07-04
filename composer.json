@@ -1,0 +1,37 @@
+{
+    "name": "sunsingerus/bootstrapi-auth",
+    "description": "Auth plugin for bootstrapi",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "version": "0.1",
+    "license": "MIT",
+    "homepage": "https://github.com/sunsingerus/bootstrapi-auth",
+    "type": "project",
+    "keywords": ["bootstrapi"],
+    "authors": [
+        {
+            "name": "sunsingerus (https://github.com/sunsingerus)",
+            "email": "sunsingerus@gmail.com"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "BootstrapiAuth\\": "app/src"
+        }
+    },
+
+    "require": {
+        "php": ">=5.6.0",
+        "illuminate/database": "^5.2"
+    },
+
+    "require-dev": {
+    },
+
+    "scripts": {
+        "post-create-project-cmd": "",
+        "post-update-cmd": "",
+        "post-install-cmd": ""
+    }
+}
