@@ -1,9 +1,9 @@
 {
-    "name": "sunsingerus/bootstrapi-auth",
+    "name": "sunsingerus/bootstrapi-external-auth",
     "description": "Auth plugin for bootstrapi",
     "license": "MIT",
     "minimum-stability": "stable",
-    "homepage": "https://github.com/sunsingerus/bootstrapi-auth",
+    "homepage": "https://github.com/sunsingerus/bootstrapi-external-auth",
     "type": "project",
     "keywords": ["bootstrapi"],
     "authors": [
