@@ -1,14 +1,14 @@
 <?php
 
-use BootstrapiAuth\BootstrapiAuth;
+use BAEAuth\BAEAuth;
 
 //Auth
 return [
     'auth' => [
-        BootstrapiAuth::PROVIDER_VKONTAKTE => array(
+        BAEAuth::PROVIDER_VKONTAKTE => array(
             'client_id'     => '6097024',
             'client_secret' => 'Fzo6IqM8fMczAXycXpFl',
-            'redirect_uri'  => 'http://localhost/examples/auth.php?provider=' . BootstrapiAuth::PROVIDER_VKONTAKTE,
+            'redirect_uri'  => 'http://localhost/examples/auth.php?provider=' . BAEAuth::PROVIDER_VKONTAKTE,
         ),
     ],
 ];

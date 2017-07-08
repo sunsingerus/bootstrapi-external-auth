@@ -1,8 +1,9 @@
 <?php
 
-namespace BootstrapiAuth\Model;
+namespace BAEAuth\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Model\User;
 
 /**
  * Class External User
@@ -24,6 +25,11 @@ class UserExternal extends Model
      */
     protected $table = 'user_external';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'source',
         'source_user_id',
@@ -42,6 +48,6 @@ class UserExternal extends Model
      */
     public function user()
     {
-        return $this->hasOne('App\Model\User');
+        return $this->hasOne(User::class);
     }
 }

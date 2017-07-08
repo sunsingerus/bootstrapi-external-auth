@@ -1,19 +1,19 @@
 <?php
 
-namespace BootstrapiAuth;
+namespace BAEAuth;
 
-use SocialAuther\SocialAuther;
-use SocialAuther\Provider\AuthProviderEnum;
+use SocialAuth\SocialAuth;
+use SocialAuth\Provider\AuthProviderEnum;
 
 use \InvalidArgumentException;
 
-class BootstrapiAuth implements AuthProviderEnum
+class BAEAuth implements AuthProviderEnum
 {
     protected $auth = null;
 
     public function __construct(array $config)
     {
-        $this->auth = new SocialAuther($config);
+        $this->auth = new SocialAuth($config);
     }
 
     public function auth($params, callable $userCreate)

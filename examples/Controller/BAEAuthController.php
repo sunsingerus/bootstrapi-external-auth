@@ -12,9 +12,9 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 
 use App\Common\JsonException;
-use BootstrapiAuth\UserExternal;
+use BAEAuth\UserExternal;
 
-class BootsrapiAuthController extends TokenController
+class BAEAuthController extends TokenController
 {
 
     /**
@@ -45,7 +45,7 @@ class BootsrapiAuthController extends TokenController
      */
     public function getUrls(Request $request, Response $response)
     {
-        $auth = new BootsrapiAuth($this->settings['auth']);
+        $auth = new BAEAuth($this->settings['auth']);
 
         return $this->apiRenderer->jsonResponse($response, 200, json_encode($auth->getProvidersInfo()));
     }
@@ -82,7 +82,7 @@ class BootsrapiAuthController extends TokenController
      */
     public function getToken(Request $request, Response $response)
     {
-        $auth = new BootsrapiAuth($this->settings['auth']);
+        $auth = new BAEAuth($this->settings['auth']);
         $params = $request->getQueryParams();
         try {
             $user = User::find($auth->auth($params, null));
