@@ -19,9 +19,17 @@
         }
     },
 
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/sunsingerus/SocialAuther"
+        }
+    ],
+
     "require": {
         "php": ">=5.6.0",
-        "illuminate/database": "^5.2"
+        "illuminate/database": "^5.2",
+        "sunsingerus/SocialAuther": "dev-master"
     },
 
     "require-dev": {
