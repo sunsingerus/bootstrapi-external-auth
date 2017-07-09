@@ -2,16 +2,14 @@
 
 namespace App\Controller;
 
-use App\Requests\GetTokenRequest;
 use App\Model\User;
-use App\Model\AccessToken;
-use App\Model\RefreshToken;
 
 use PHPUnit\Runner\Exception;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
 use App\Common\JsonException;
+use BAEAuth\BAEAuth;
 use BAEAuth\UserExternal;
 
 class BAEAuthController extends TokenController
@@ -85,9 +83,20 @@ class BAEAuthController extends TokenController
         $auth = new BAEAuth($this->settings['auth']);
         $params = $request->getQueryParams();
         try {
-            $user = User::find($auth->auth($params, null));
-        } catch (Exception $ex) {
+            $provider = $params['provider'];
+            $user_id = $auth->auth($provider, $params, function ($params) {
+                $user = array(
+                    'full_name' => 'John Smith',
+                    'email'     => 'a'.rand(1,1000000).'@b'.rand(1, 1000000).'.com',
+                    'role_id'   => 1,
+                    'status'    => 1,
+                );
+                $user = User::create($user, $user['password']);
 
+                return empty($user) ? null : $user->id;
+            });
+            $user = User::find($user_id);
+        } catch (Exception $ex) {
         }
 
         if ($user) {
