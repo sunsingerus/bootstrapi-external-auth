@@ -83,11 +83,15 @@ class BAEAuthController extends TokenController
         $auth = new BAEAuth($this->settings['auth']);
         $params = $request->getQueryParams();
         try {
+            // TODO not sure that 'provider' should be extracted here from query params - may be all params should be passed
             $provider = $params['provider'];
-            $user_id = $auth->auth($provider, $params, function ($params) {
+            $user_id = $auth->auth($provider, $params, function ($userInfo) {
+                // $userInfo - array of external user info getUserInfo()
+                // TODO make new User create more reasonable
                 $user = array(
-                    'full_name' => 'John Smith',
-                    'email'     => 'a'.rand(1,1000000).'@b'.rand(1, 1000000).'.com',
+                    'full_name' => empty($userInfo[BAEAuth::ATTRIBUTE_NAME]) ? 'John Smith' : $userInfo[BAEAuth::ATTRIBUTE_NAME],
+                    'email'     => empty($userInfo[BAEAuth::ATTRIBUTE_EMAIL]) ? 'a'.rand(1,1000000).'@b'.rand(1, 1000000).'.com' : $userInfo[BAEAuth::ATTRIBUTE_EMAIL],
+                    'password'  => 'c'.rand(1, 1000000),
                     'role_id'   => 1,
                     'status'    => 1,
                 );
