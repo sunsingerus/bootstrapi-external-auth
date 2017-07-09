@@ -3,7 +3,7 @@
 namespace BAEAuth\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Model\User;
+//use App\Model\User;
 
 /**
  * Class External User
@@ -23,7 +23,7 @@ class UserExternal extends Model
      *
      * @var string
      */
-    protected $table = 'user_external';
+    protected $table = 'users_external';
 
     /**
      * The attributes that are mass assignable.
@@ -46,8 +46,8 @@ class UserExternal extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function user()
-    {
-        return $this->hasOne(User::class);
-    }
+//    public function user()
+//    {
+//        return $this->hasOne(User::class);
+//    }
 }
