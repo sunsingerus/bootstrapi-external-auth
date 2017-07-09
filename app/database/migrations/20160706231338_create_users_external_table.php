@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-class CreateAuthTable
+class CreateUsersExternalTable
 {
     /**
      * Do the migration
